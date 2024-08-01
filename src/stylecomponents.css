@@ -1,0 +1,138 @@
+.container22,.container33{
+    border: 1px solid #00204a;
+    border-radius: 20px;
+}
+.container1,.container2,.container3{
+    margin: 0;
+    width: 100%;
+    height: 550px;
+    position: fixed;
+    border:none;
+    background-color: #233142;
+}
+
+ .container22{
+   margin:2.5rem 57%;
+   width: 40%;
+   height: 200px;
+   position: fixed;
+   background-color: #3A556B;
+   border: 1px solid #233142;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.containerafficheCompte{
+   margin:2.5rem 3%;
+   width: 50%;
+   height: 200px;
+   position: fixed;
+   background-color: #3A556B;
+   border: 1px solid #233142;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 12px;
+}
+.containerafficheresultcompte{
+   margin:16rem 3%;
+   width: 50%;
+   height: 270px;
+   position: fixed;
+   background-color: #ffffff;
+   border: 1px solid #233142;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   border-radius: 12px;
+}
+.container33{
+   margin:19% 57%;
+   width: 40%;
+   height: 270px;
+   position: fixed;
+   background-color: #00204a;
+  
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+ .inputEntreprise{
+    width: 40%;
+    height: 40px;
+    margin:0 2.5rem;
+    border-radius: 8px;
+ }
+ .transac{
+   width: 20%;
+   height: 35px;
+   margin:0rem 0rem;
+   border-radius: 8px;
+}
+.transacc{
+   width: 20%;
+   height: 35px;
+   margin:2rem 2.3rem;
+   border-radius: 8px;
+}
+ .inputtrans{
+   width: 50%;
+   height: 40px;
+   margin:0 2.5rem;
+   border-radius: 8px;
+}
+
+ .labscom1{
+  margin:0 2.8rem;
+  color:#ffffff;
+  font-size: 13px;
+  font-weight: 500;
+ }
+
+ .btnentreprise1{
+   background-color: #455d7a;
+   /* margin:2rem 8.7cm ; */
+   width: 30%;
+   height: 40px;
+   border: none;
+   border-radius: 10px;
+   color: white;
+   font-weight: bold;
+   cursor: pointer;
+   margin:0rem 2.4rem;
+ }
+ .btnentreprise{
+   background-color: #00204a;
+   /* margin:2rem 8.7cm ; */
+   width: 30%;
+   height: 40px;
+   border: none;
+   border-radius: 10px;
+   color: white;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+ .afficheC{
+   width: 20%;
+   height: 35px;
+   margin:0 0rem;
+   border-radius: 8px;
+}
+
+td{
+   border: 1px solid #233142;
+   color: #00204a;
+   font-size: 12px;
+   border-radius: 4px;
+   text-align: center;
+}
+th{
+   border: 1px solid #233142;
+   color: #ffffff;
+   background-color: #00204a;
+   font-size: 12px;
+   border-top-left-radius: 8px;
+   border-top-right-radius: 8px;
+}
+table{
+   width: 100%;
+   border:none;
+   overflow-y: auto;
+   
+}
+
