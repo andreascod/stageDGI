@@ -8,7 +8,7 @@
     height: 550px;
     position: fixed;
     border:none;
-    background-color: #233142;
+    background-color: #9fd3c7;
 }
 
  .container22{
@@ -16,8 +16,8 @@
    width: 40%;
    height: 200px;
    position: fixed;
-   background-color: #3A556B;
-   border: 1px solid #233142;
+   background-color: #5585b5;
+   border: none;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .containerafficheCompte{
@@ -25,8 +25,8 @@
    width: 50%;
    height: 200px;
    position: fixed;
-   background-color: #3A556B;
-   border: 1px solid #233142;
+   background-color: #5585b5;
+   border: none;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
    border-radius: 12px;
 }
@@ -36,7 +36,7 @@
    height: 270px;
    position: fixed;
    background-color: #ffffff;
-   border: 1px solid #233142;
+   border: none;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
    border-radius: 12px;
 }
