@@ -2,6 +2,8 @@ import { motion } from "framer-motion"; // Correction de l'importation de 'color
 import ChartContribuable from "../graphicChart/Contribuable";
 import { useEffect, useState, CSSProperties } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import AffichageCompte from "../formulaire/AffichageCompte";
+
 
 const override: CSSProperties = {
   display: "block",
@@ -49,6 +51,7 @@ export default function Financiers() {
               transition={{ delay: 1.5, duration: 1.5 }}
             >
               {/* Contenu pour le graph1 */}
+             <AffichageCompte/>
             </motion.div>
           </>
         )}
