@@ -18,21 +18,40 @@ const Connexion = () => {
     });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post('http://localhost:8000/api/utilisateurs/login', formData);
+  //     console.log('Connexion réussie :', response.data);
+  //     alert('connexion reussie');
+  //     // Stocker le token ou effectuer toute autre action nécessaire
+  //     // localStorage.setItem('auth_token', response.data.access_token);
+
+  //     // // Rediriger vers Navbar
+  //     // navigate('Financiers'); // Assurez-vous que cette route est définie dans App.js
+  //   } catch (error) {
+  //     console.error('Erreur lors de la connexion :', error);
+  //     alert('eereur');
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form Data:', formData);
     try {
-      const response = await axios.post('http://localhost:8000/api/utilisateurs', formData);
-      console.log('Connexion réussie :', response.data);
-
-      // Stocker le token ou effectuer toute autre action nécessaire
-      localStorage.setItem('auth_token', response.data.access_token);
-
-      // Rediriger vers Navbar
-      navigate('/Navbar'); // Assurez-vous que cette route est définie dans App.js
+        const response = await axios.post('http://localhost:8000/api/logks', formData);
+        console.log('Data inserted successfully:', response.data);
+          alert('connexion');
     } catch (error) {
-      console.error('Erreur lors de la connexion :', error);
+        if (error.response) {
+            // console.log("Erreur lors du connexion:", error.response.data.message);
+            alert('erreur');
+        } else if (error.request) {
+            console.log('Erreur lors de l\'ajout du compte. Aucun réponse reçue du serveur.');
+            alert('erreur');
+        }
     }
-  };
+};
 
   return (
     <form onSubmit={handleSubmit}>

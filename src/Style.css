@@ -31,7 +31,8 @@ body{
     font-weight: bold;
 }
 .logodgi{
-    font-size:2rem;
+    font-size:1rem;
+    color:#FFFFFF;
 }
 .nav li:hover{
     color: white ;

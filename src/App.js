@@ -17,7 +17,8 @@ const App = () => {
              <Navbar />
             <div className='container'>
                 <Routes>
-                    <Route path='/' element={<Tableau />} />
+                    {/* <Route path='/' element={<Tableau />} /> */}
+                    <Route path='/' element={<Compte />} />
                     <Route path='/Compte' element={<Compte />} />
                     <Route path='/Transaction' element={<Transaction />} />
                     <Route path='/Justificatifs' element={<Justificatifs />} />

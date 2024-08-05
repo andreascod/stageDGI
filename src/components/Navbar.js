@@ -9,14 +9,15 @@ export default function Navbar() {
             animate={{ y: -10 }}
             transition={{ delay: 0.2, duration: 1, type: 'spring', stiffness: 120 }}
         >
-            <Link to="/" className="logodgi" style={{
+            {/* <Link to="/" className="logodgi" style={{
 
                 color:'wheat'
                 ,textDecoration:'none',
                 fontWeight:'bold', 
             }}>
                 DGI
-            </Link>
+            </Link> */}
+            <h1 className="logodgi">DGI</h1>
             <ul
              style={{
                 padding: '0',
@@ -45,7 +46,7 @@ export default function Navbar() {
                         Compte
                     </Link>
                 </motion.li>
-                <motion.li
+                {/* <motion.li
                     whileHover={{ scale: 1.13, originX: 0.3 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                 >
@@ -59,7 +60,7 @@ export default function Navbar() {
                     >
                         Transactions
                     </Link>
-                </motion.li>
+                </motion.li> */}
                 <motion.li
                     whileHover={{ scale: 1.13, originX: 0.3 }}
                     transition={{ type: 'spring', stiffness: 300 }}
@@ -75,7 +76,7 @@ export default function Navbar() {
                         Rapports financiers
                     </Link>
                 </motion.li>
-                <motion.li
+                {/* <motion.li
                     whileHover={{ scale: 1.13, originX: 0.3 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                 >
@@ -89,7 +90,7 @@ export default function Navbar() {
                     >
                         Justificatifs
                     </Link>
-                </motion.li>
+                </motion.li> */}
             </ul>
         </motion.nav>
     );
