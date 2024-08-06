@@ -136,3 +136,12 @@ table{
    
 }
 
+.tableauContainer{
+   width: 94.5%;
+   height: 550px;
+   border:none;
+   background-color: #9fd3c7;
+   margin:2rem 3%;
+   
+}
+
