@@ -3,7 +3,7 @@ import axios from "axios";
 
 const AffichageCompte = () => {
     const [comptes, setComptes] = useState([]);
-    const [utilisateur,setUtilisateur]  =useState([]);
+    // const [utilisateur,setUtilisateur]  =useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/comptes')
@@ -18,7 +18,7 @@ const AffichageCompte = () => {
 
     return (
         <div>
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Id compte</th>

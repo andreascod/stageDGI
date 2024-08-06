@@ -3,6 +3,7 @@ import ChartContribuable from "../graphicChart/Contribuable";
 import { useEffect, useState, CSSProperties } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import Graph from "../graphicChart/contribuableparId";
+import AffichageInformation from "../formulaire/AffichageInfoContribuable";
 const override: CSSProperties = {
   display: "block",
   margin: "20% 47%",
@@ -54,7 +55,7 @@ export default function Financiers() {
              <renderCustomizedLabel/>
             </motion.div>
             <div className="tableauContainer">
-
+                  <AffichageInformation/>
             </div>
           </>
         )}
