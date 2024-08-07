@@ -4,6 +4,7 @@
 body{
     margin:0;
     background-color: #e7eaf6;
+    position: inherit;
 }
 .nav{
     background-color:#53a8b6;
@@ -39,7 +40,7 @@ body{
 }
 
 .navl{
-   
+     
     color: #233142;
     display: flex;
     justify-content: space-between;

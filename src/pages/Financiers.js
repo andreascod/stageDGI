@@ -47,16 +47,21 @@ export default function Financiers() {
               className="containergraph1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1.5, duration: 1.5 }}
+              transition={{ delay: 1, duration: 1.5 }}
             >
               {/* Contenu pour le graph1 */}
              {/* <AffichageCompte/> */}
              <Graph />
              <renderCustomizedLabel/>
             </motion.div>
-            <div className="tableauContainer">
+            <motion.div className="tableauContainer"
+            initial={{opacity:0}}
+            animate={{opacity:1}}
+            transition={{delay:1.5,duration:1.5}}
+            
+            >
                   <AffichageInformation/>
-            </div>
+            </motion.div>
           </>
         )}
       </div>

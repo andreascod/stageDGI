@@ -86,7 +86,7 @@ const FormulaireTransaction = () => {
                     type="number"
                     step="0.01"
                     id="montan"
-                    className='transac '
+                    className='transac'
                     name='montan'
                     placeholder='montant'
                     value={formData.montan}

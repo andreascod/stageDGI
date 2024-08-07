@@ -29,6 +29,7 @@
    border: none;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
    border-radius: 12px;
+
 }
 .containerafficheresultcompte{
    margin:16rem 3%;
@@ -39,6 +40,7 @@
    border: none;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
    border-radius: 12px;
+
 }
 .container33{
    margin:19% 57%;
@@ -56,24 +58,29 @@
     height: 40px;
     margin:0 2.5rem;
     border-radius: 8px;
+    outline: none;
+
  }
  .transac{
    width: 20%;
    height: 35px;
    margin:0rem 0rem;
    border-radius: 8px;
+   outline: none;
 }
 .transacc{
    width: 20%;
    height: 35px;
    margin:2rem 2.3rem;
    border-radius: 8px;
+   outline :none;
 }
  .inputtrans{
    width: 50%;
    height: 40px;
    margin:0 2.5rem;
    border-radius: 8px;
+   outline: none;
 }
 
  .labscom1{
@@ -112,6 +119,8 @@
    height: 35px;
    margin:0 0rem;
    border-radius: 8px;
+   outline: none;
+   
 }
 
 td{
@@ -126,15 +135,16 @@ th{
    color: #ffffff;
    background-color: #00204a;
    font-size: 12px;
-   border-top-left-radius: 8px;
-   border-top-right-radius: 8px;
-   position: sticky;
+   /* border-top-left-radius: 8px;
+   border-top-right-radius: 8px; */
+   /* position: sticky; */
 }
 table{
    width: 100%;
    border:none;
-   overflow-y: auto;
+   overflow-y: scroll;
    /* border-collapse: collapse; */
+
 }
 
 .tableauContainer{
@@ -144,7 +154,13 @@ table{
   background-color: #ffffff;
   margin: 2rem 3%;
   border-radius: 12px;
-  overflow-y: auto; 
+ 
 
 }
-
+.recherche{
+   width: 40%;
+   border: none;
+   border-bottom: 1px solid #00204a;
+   margin:1rem 20%;
+   outline: none;
+}
