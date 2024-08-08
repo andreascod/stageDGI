@@ -20,6 +20,16 @@
    border: none;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.containerLog{
+   margin:2.5rem 55%;
+   width: 40%;
+   height: 400px;
+   position: fixed;
+   background-color: #ffffff;
+   border: none;
+   border-radius: 15px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .containerafficheCompte{
    margin:2.5rem 3%;
    width: 50%;
@@ -40,6 +50,7 @@
    border: none;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
    border-radius: 12px;
+   overflow-y: scroll;
 
 }
 .container33{
@@ -135,6 +146,7 @@ th{
    color: #ffffff;
    background-color: #00204a;
    font-size: 12px;
+   position: relative;
    /* border-top-left-radius: 8px;
    border-top-right-radius: 8px; */
    /* position: sticky; */
@@ -147,13 +159,23 @@ table{
 
 }
 
+tr:hover{
+   background-color: #455d7a;
+   cursor: pointer;
+   color: #ffffff;
+}
+td:hover{
+   color: #ffffff;
+}
+
 .tableauContainer{
    width: 94.5%;
-  height: 400px;
+  height: 700px;
   border: none;
   background-color: #ffffff;
   margin: 2rem 3%;
   border-radius: 12px;
+  overflow-y: scroll;
  
 
 }
@@ -163,4 +185,46 @@ table{
    border-bottom: 1px solid #00204a;
    margin:1rem 20%;
    outline: none;
+}
+.input{
+   display: flex;
+   align-items: center;
+   margin: 1rem 2rem;
+   width: 480px;
+   height: 60px;
+   background-color: #eaeaea;
+   border-radius: 6px;
+   border: none;
+}
+.inputs{
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+.input input{
+   height: 50px;
+   width: 455px;
+   background: transparent;
+   margin:0rem 1rem ;
+   border: none;
+   outline: none;
+   color: #797979;
+   font-size: 14px;
+   border: none;
+}
+.btnconnexion{
+   width: 88%;
+   height: 2.5rem;
+   border-radius:6px;
+   border:none;
+   outline: none;
+   margin:1rem 6.5%;
+   cursor: pointer;
+   background-color: #5585b5;
+   color: #ffffff;
+
+}
+.btnconnexion:hover{
+   background-color: #233142;
 }

@@ -66,7 +66,6 @@ export default function AffichageInformation(){
                         <td>{contribuable.solde}</td>
                     </tr>
                 ))}
-                
             </tbody>
         </table>
     </div>

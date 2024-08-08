@@ -4,7 +4,7 @@ import './index.css';
 import './Style.css';
 import './stylecomponents.css';
 import './graphic.css';
- import App from './App';
+ import App1 from './App1';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ import { BrowserRouter } from 'react-router-dom';
   <React.StrictMode>
     {/* <RouterProvider router={router}/> */}
     <BrowserRouter>
-    <App/>
+    <App1/>
     </BrowserRouter>
   </React.StrictMode>
 );

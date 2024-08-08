@@ -1,54 +1,70 @@
-import React, { useState} from 'react';
-import { motion } from 'framer-motion'; 
-import axios from 'axios'; 
+import { useState } from "react";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import {FaExpeditedssl, FaRegEnvelope} from "react-icons/fa";
 
-const CreationCompte = () => { 
- const [formData, setFormData] = useState({ 
- email:'',
- mot_de_passe:'', 
- 
- });
-  
+export default function CreationCompte(){
+  const [email,setEmail]=useState('');
+  const [password,setPass]=useState('');
+  const [error,setError]=useState('');
+  const navigate=useNavigate();
 
- const handleChange = (e) => { 
-    const { name, value } = e.target; 
-    setFormData({ 
-    ...formData, 
-    [name]: value 
+  const handleLogin = async (Event)=>{
+    Event.preventDefault();
+   try{
+    const response  =await axios.post('http://localhost:8000/api/logks',{
+      email,
+      password
     }); 
-    }; 
-    const handleSubmit = async (e) => { 
-    e.preventDefault(); 
-    try { 
-    const response = await axios.post('http://localhost:8000/api/type_en', 
-   formData); 
-    console.log('Data inserted successfully:', response.data); 
-    } catch (error) { 
-    console.error('Error inserting data:', error); 
-    } 
-    }; 
-    return (
-        
-    <form onSubmit={handleSubmit}>
-         <h1 style={{color:'#ffffff',padding:'1rem ',textAlign:'center',fontSize:'25px'}}>ADMINISTRATEUR</h1>
-         <p style={{color:'#233142',textAlign:'center',}}>Pour creer un compte il faut au compte d'utilisateur,pour avoir l'accee a cette application</p>
-    
-   <label className='labscom1' htmlFor='email'>email</label>
-   <br/>
-   <input className='inputEntreprise' type="email" name="email" placeholder="email" value={formData.email} 
-   onChange={handleChange} required />
-   <br/><br/>
-   <label className='labscom1' htmlFor='mot_de_passe'>mot de passe</label>
-   <br/>
-   <input className='inputEntreprise' type="password" name="mot_de_passe" placeholder="mot de passe" value={formData.mot_de_passe} 
-   onChange={handleChange} required />
-<br/>
-<motion.button className='btnentreprise' type="submit"
- whileHover={{
-    scale:1.1,
- }}
->connexion</motion.button>
- </form> 
- ); 
-}; 
-export default CreationCompte;   
+    localStorage.setItem('token',response.data.token);
+    console.log("connexion reussie");
+    navigate('/Compte');
+    alert('connexion');
+   }catch(error){
+    if(error.response){
+      setError(error.response.data.message || "Information du compte incorrect");
+    }else{
+      console.log("erreur de la connexion");
+    }
+    console.log("erreur de la connexion",error);
+   }
+  };
+  return (
+    <>
+    <div>
+       <div className="header">
+        <h2 style={{ color: '#00204a',textAlign:'center',fontWeight:'700', fontSize: '38px' }}>ADMINISTRATEUR</h2>
+        <div className="underine" style={{ background: '#00204a',width:'100px',height:'6px',borderRadius:'9px',margin:'0rem 41%',marginBottom:'40px',marginTop:'-17px' }}/>
+        </div>
+        <form onSubmit={handleLogin}>
+            <div className="input">
+                <input
+                    type="email"
+                    value={email}
+                    className="inputs"
+                    placeholder="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                 <FaRegEnvelope style={{ color: '#00204a',margin:'0px 2%', fontSize: '25px' }} id="FaRegEnvelope-icon" />
+            </div>
+            <div className="input">
+                <input
+                    type="password"
+                    className="inputs"
+                    value={password}
+                    placeholder="mot de passe"
+                    onChange={(e) => setPass(e.target.value)}
+                    required
+                />
+                 <FaExpeditedssl style={{ color: '#00204a',margin:'0px 2%', fontSize: '25px' }} id="FaExpeditedssl-icon" />
+            </div>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            <button className="btnconnexion" type="submit"
+                whileHover={{ scale: 1.1 }}
+            >Se connecter</button>
+        </form>
+    </div>
+    </>
+);
+}

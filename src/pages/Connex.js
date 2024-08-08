@@ -7,7 +7,7 @@ export default function Connex(){
     return (
         <>
          <InterfaceLogin/>
-             <motion.div className="container22"
+             <motion.div className="containerLog"
           initial={{opacity:0}}
           animate={{opacity:1}}
           transition={{delay:1.5,duration:1.5}}

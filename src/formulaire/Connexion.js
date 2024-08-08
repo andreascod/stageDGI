@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import {FaExpeditedssl, FaRegEnvelope} from "react-icons/fa";
 
 export default function Login(){
   const [email,setEmail]=useState('');
@@ -31,28 +32,37 @@ export default function Login(){
   return (
     <>
     <div>
-        <h2>Connexion</h2>
+       <div className="header">
+        <h2 style={{ color: '#00204a',textAlign:'center',fontWeight:'700', fontSize: '38px' }}>CONTRIBUABLE</h2>
+        <div className="underine" style={{ background: '#00204a',width:'100px',height:'6px',borderRadius:'9px',margin:'0rem 41%',marginBottom:'40px',marginTop:'-17px' }}/>
+        </div>
         <form onSubmit={handleLogin}>
-            <div>
-                <label>Email:</label>
+            <div className="input">
                 <input
                     type="email"
                     value={email}
+                    className="inputs"
+                    placeholder="email"
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
+                 <FaRegEnvelope style={{ color: '#00204a',margin:'0px 2%', fontSize: '25px' }} id="FaRegEnvelope-icon" />
             </div>
-            <div>
-                <label>Mot de passe:</label>
+            <div className="input">
                 <input
                     type="password"
+                    className="inputs"
                     value={password}
+                    placeholder="mot de passe"
                     onChange={(e) => setPass(e.target.value)}
                     required
                 />
+                 <FaExpeditedssl style={{ color: '#00204a',margin:'0px 2%', fontSize: '25px' }} id="FaExpeditedssl-icon" />
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button type="submit">Se connecter</button>
+            <button className="btnconnexion" type="submit"
+                whileHover={{ scale: 1.1 }}
+            >Se connecter</button>
         </form>
     </div>
     </>
