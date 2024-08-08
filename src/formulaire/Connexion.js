@@ -1,11 +1,12 @@
 import { useState } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 export default function Login(){
   const [email,setEmail]=useState('');
   const [password,setPass]=useState('');
   const [error,setError]=useState('');
-
+  const navigate=useNavigate();
 
   const handleLogin = async (Event)=>{
     Event.preventDefault();
@@ -16,6 +17,8 @@ export default function Login(){
     }); 
     localStorage.setItem('token',response.data.token);
     console.log("connexion reussie");
+    navigate('/Compte');
+    alert('connexion');
    }catch(error){
     if(error.response){
       setError(error.response.data.message || "Information du compte incorrect");
@@ -26,6 +29,7 @@ export default function Login(){
    }
   };
   return (
+    <>
     <div>
         <h2>Connexion</h2>
         <form onSubmit={handleLogin}>
@@ -51,5 +55,6 @@ export default function Login(){
             <button type="submit">Se connecter</button>
         </form>
     </div>
+    </>
 );
 }

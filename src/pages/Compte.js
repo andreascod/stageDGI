@@ -5,6 +5,7 @@ import AffichageCompte from '../formulaire/AffichageCompte';
 import FormulaireTransaction from '../formulaire/formulaireTransaction';
 import { useEffect, useState,CSSProperties } from 'react';
 import PropagateLoader from 'react-spinners/PropagateLoader';
+import Navbar from '../components/Navbar';
 const override: CSSProperties = {
   display: "block",
   margin: "20% 47%",
@@ -22,7 +23,7 @@ export default function Entreprises(){
     },[])
     return (
         <>
-        
+          <Navbar/>
          <div>
           {
           loading?(
@@ -36,8 +37,7 @@ export default function Entreprises(){
       />   
            ) :( 
          
-        
-         
+     
           <motion.div className="container2"
           initial={{opacity:0}}
           animate={{opacity:1}}

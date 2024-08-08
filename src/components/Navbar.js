@@ -7,7 +7,7 @@ export default function Navbar() {
         <motion.nav className="nav"
             initial={{ y: -100 }}
             animate={{ y: -10 }}
-            transition={{ delay: 0.2, duration: 1, type: 'spring', stiffness: 120 }}
+            transition={{ delay: 3, duration: 1.5, type: 'spring', stiffness: 120 }}
         >
             {/* <Link to="/" className="logodgi" style={{
 

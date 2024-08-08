@@ -54,3 +54,11 @@ body{
 .navl a:hover{
     border-bottom: 1px solid #233142;
 }
+ul{
+    padding: 0;
+    margin: 1rem 1rem;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;  
+}

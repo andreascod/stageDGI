@@ -1,16 +1,12 @@
 import {motion} from 'framer-motion';
 import Connexion from '../formulaire/Connexion';
+import InterfaceLogin from '../components/InterfaceLogin';
 
 
 export default function Connex(){
     return (
         <>
-         
-         <motion.div className="container2"
-          initial={{opacity:0}}
-          animate={{opacity:1}}
-          transition={{delay:0.8,duration:1.5}}
-          >
+         <InterfaceLogin/>
              <motion.div className="container22"
           initial={{opacity:0}}
           animate={{opacity:1}}
@@ -18,8 +14,6 @@ export default function Connex(){
           >  
            {/* place pour ajouter le contenu  */}
            <Connexion />
-          </motion.div>
-
           </motion.div>
        
         </>

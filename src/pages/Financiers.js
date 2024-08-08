@@ -4,6 +4,7 @@ import { useEffect, useState, CSSProperties } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import Graph from "../graphicChart/contribuableparId";
 import AffichageInformation from "../formulaire/AffichageInfoContribuable";
+import Navbar from "../components/Navbar";
 const override: CSSProperties = {
   display: "block",
   margin: "20% 47%",
@@ -22,6 +23,7 @@ export default function Financiers() {
 
   return (
     <>
+      <Navbar/>
       <div>
         {loading ? (
           <PropagateLoader

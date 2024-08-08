@@ -1,10 +1,12 @@
 import {motion} from 'framer-motion';
 import CreationCompte from '../formulaire/CreationCompte';
+import InterfaceLogin from '../components/InterfaceLogin';
 
 
 export default function Entreprises(){
     return (
         <>
+         <InterfaceLogin/>
           <motion.div className="container2"
           initial={{opacity:0}}
           animate={{opacity:1}}
