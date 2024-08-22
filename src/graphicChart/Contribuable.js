@@ -1,67 +1,70 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
-  // BarChart,
   Bar,
   ComposedChart,
   ResponsiveContainer,
   XAxis,
-  // Area,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  LabelList,
   Scatter,
 } from 'recharts';
+import AuthUser from '../components/AuthUser';
+
+// Fonction pour ajouter un délai avant l'exécution d'une fonction (debounce)
+function debounce(func, wait) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+}
 
 const ChartContribuable = () => {
   const [data, setData] = useState([]);
+  const { http } = AuthUser();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = debounce(async () => {
       try {
-        // const response = await axios.get('http://localhost:8000/api/transactions/trans');
-        const response = await axios.get('http://localhost:8000/api/transactions/trans');
+        const response = await http.get('/transactions');
+        console.log('Données récupérées:', response.data); // Vérifier les données récupérées
         setData(response.data);
       } catch (error) {
-        console.error('Erreur lors de la récupération des données:', error);
+        if (error.response && error.response.status === 429) {
+          console.error('Trop de requêtes. Veuillez réessayer plus tard.');
+        } else {
+          console.error('Erreur lors de la récupération des données:', error);
+        }
       }
-    };
-
+    }, 1000); // 1 seconde de délai pour limiter les requêtes
     fetchData();
-  }, []);
+  }, [http]);
 
   return (
     <ResponsiveContainer width="100%" height={400}>
       <ComposedChart 
-      // width={500} height={400} data={data}
-      width={500}
-      height={400}
-      data={data}
-      margin={{
-        top: 20,
-        right: 20,
-        bottom: 20,
-        left: 20,
-      }}
+        width={500}
+        height={400}
+        data={data}
+        margin={{
+          top: 20,
+          right: 20,
+          bottom: 20,
+          left: 20,
+        }}
       >
         <XAxis dataKey="minute" />
         <YAxis />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend />
-        {/* <Area type="monotone" dataKey="Nom_util" fill="#8884d8" stroke="#8884d8" /> fafaina */}
-        {/* <Bar dataKey="recette" fill="#42b883" >
-         <LabelList dataKey="utilisateur" position="top"/>
-        </Bar>
-        <Bar dataKey="depense" fill="#272343" >
-        <LabelList dataKey="utilisateur" position="top"/>
-         </Bar> */}
-          <Bar dataKey="recette" fill="#42b883" ></Bar>
-          <Bar dataKey="depense" fill="#272343" ></Bar>
-          <Scatter dataKey="utilisateur" fill="red" />
-        </ComposedChart>
+        <Bar dataKey="recette" fill="#42b883" />
+        <Bar dataKey="depense" fill="#272343" />
+        <Scatter dataKey="utilisateur" fill="red" />
+      </ComposedChart>
     </ResponsiveContainer>
   );
 };

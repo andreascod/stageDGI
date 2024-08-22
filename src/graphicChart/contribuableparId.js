@@ -11,27 +11,29 @@ import {
   Legend,
   Scatter,
 } from 'recharts';
+import AuthUser from "../components/AuthUser";
 
 export default function Graph() {
   const [data, setData] = useState([]);
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState('');
+  const {http} = AuthUser();
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/comptes')
+    http.get('/recuperation')
       .then(response => {
         setUsers(response.data);
       })
       .catch(error => {
         console.error("Erreur lors de la récupération des identités des transactions:", error);
       });
-  }, []);
+  }, [http]);
 
   useEffect(() => {
     const fetchData = async () => {
       if (selectedUser) {
         try {
-          const response = await axios.get(`http://localhost:8000/api/transaction/trans/${selectedUser}`);
+          const response = await http.get(`/transactions/${selectedUser}`);
           setData(response.data); // Correction ici : utiliser response.data
         } catch (error) {
           console.error("Erreur lors de la récupération des données:", error);
@@ -57,7 +59,7 @@ export default function Graph() {
       >
         <option value="">Sélectionner Contribuable</option>
         {users.map((user) => (
-          <option key={user.Id_compte} value={user.Id_compte}>
+          <option key={user.Id_util} value={user.Id_util}>
             {user.Nom_util}
           </option>
         ))}
@@ -65,7 +67,8 @@ export default function Graph() {
 
       <ResponsiveContainer width="100%" height={400}>
         <ComposedChart 
-          width={50} height={400} data={data} margin={{top: 20, right: 20, bottom: 20, left: 20}}
+          data={data} 
+          margin={{top: 20, right: 20, bottom: 20, left: 20}}
         >
           <XAxis dataKey="minute"/>
           <YAxis/>

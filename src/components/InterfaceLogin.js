@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Navbar from "./Navbar";
+import Connex from "../pages/Connex";
+import CreateConnex from "../pages/CreateConnex"
+import { Route, Routes } from 'react-router-dom';
+import LOGO from "../logo_by_vahatra/logo.png";
 
 export default function InterfaceLogin() {
     return (
@@ -11,28 +14,12 @@ export default function InterfaceLogin() {
             animate={{ y: -10 }}
             transition={{ delay: 0.2, duration: 1, type: 'spring', stiffness: 120 }}
         >
-            <p className="logodgi" style={{color:'#233142'}}>
+            {/* <p className="logodgi" style={{color:'#233142'}}>
                 DGI
-            </p>
+            </p> */}
+            <img src={LOGO} className="w-[6%] "/>
             <ul>
-                <motion.li
-                    whileHover={{ scale: 1.13, originX: 0.3 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
-                >
-                    <Link id="link" to="/CreateConnex" className={window.location.pathname === "/CreateConnex" ? "active" : ""}
-                     style={{
-                        color: '#233142',
-                        textDecoration: 'none',
-                        fontWeight: 'bold',
-                        }}
-                    
-                    >
-                        Creer Compte
-                    </Link>
-                </motion.li>
-                <motion.li
-                    whileHover={{ scale: 1.13, originX: 0.3 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                <li
                 >
                     <Link id="link" to="/Connex" className={window.location.pathname === "/Connex" ? "active" : ""}
                      style={{
@@ -43,9 +30,15 @@ export default function InterfaceLogin() {
                     >
                         connexion
                     </Link>
-                </motion.li>
+                </li>
             </ul>
         </motion.nav>
+                 <div className='container'>
+                 <Routes>
+                 <Route path='/' element={<Connex/>}/>
+                 <Route path='/Connex' element={<Connex />} />
+                 </Routes>
+             </div>
         </>
     );
 }

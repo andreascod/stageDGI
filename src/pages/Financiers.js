@@ -1,10 +1,11 @@
 import { motion } from "framer-motion"; // Correction de l'importation de 'color'
 import ChartContribuable from "../graphicChart/Contribuable";
-import { useEffect, useState, CSSProperties } from "react";
+import { useEffect, useState, CSSProperties, Fragment } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import Graph from "../graphicChart/contribuableparId";
+import Modal from '../components/Modal';
 import AffichageInformation from "../formulaire/AffichageInfoContribuable";
-import Navbar from "../components/Navbar";
+import FloatingBox from '../Floatingbox';
 const override: CSSProperties = {
   display: "block",
   margin: "20% 47%",
@@ -13,7 +14,7 @@ const override: CSSProperties = {
 
 export default function Financiers() {
   const [loading, setLoading] = useState(false);
-
+  const [showModal,setShowModal]=useState(false);
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -22,8 +23,8 @@ export default function Financiers() {
   }, []);
 
   return (
-    <>
-      <Navbar/>
+    <Fragment>
+      {/* <Navbar/> */}
       <div>
         {loading ? (
           <PropagateLoader
@@ -36,8 +37,9 @@ export default function Financiers() {
           />
         ) : (
           <>
+            <div className="md:flex space-x-12 hidden  ">
             <motion.div
-              className="containerContribuable"
+              className="bg-[#ffffff] w-[50%]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1.5 }}
@@ -46,7 +48,7 @@ export default function Financiers() {
             </motion.div>
 
             <motion.div
-              className="containergraph1"
+              className="bg-[#ffffff] w-[50%]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1.5 }}
@@ -55,18 +57,17 @@ export default function Financiers() {
              {/* <AffichageCompte/> */}
              <Graph />
              <renderCustomizedLabel/>
-            </motion.div>
-            <motion.div className="tableauContainer"
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            transition={{delay:1.5,duration:1.5}}
             
-            >
-                  <AffichageInformation/>
             </motion.div>
+           </div>
+           
+                  <AffichageInformation/>
+                  <FloatingBox onContribuableClick={()=>setShowModal(true)}/>
+
           </>
         )}
       </div>
-    </>
+      <Modal isVisible={showModal} onClose={()=>setShowModal(false)}/>
+    </Fragment>
   );
 }

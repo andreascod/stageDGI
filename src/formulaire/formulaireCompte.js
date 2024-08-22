@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import AnimatedAlert from './AnimatedAlert';
+import AuthUser from '../components/AuthUser';
 
 const FormulaireCompte = () => {
     const [formData, setFormData] = useState({
@@ -11,16 +12,16 @@ const FormulaireCompte = () => {
     });
     const [UT, setUT] = useState([]);
     const [alert, setAlert] = useState(null);
-
+    const {http}=AuthUser();
     useEffect(() => {
-        axios.get('http://localhost:8000/api/utilisateurs/recuperer')
+        http.get('/recuperation')
             .then(response => {
                 setUT(response.data);
             })
             .catch(error => {
                 console.error("Il y a eu une erreur lors de la récupération des utilisateurs!", error);
             });
-    }, []);
+    }, [http]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,7 +35,7 @@ const FormulaireCompte = () => {
         e.preventDefault();
         console.log('Form Data:', formData);
         try {
-            const response = await axios.post('http://localhost:8000/api/comptes', formData);
+            const response = await http.post('/comptes', formData);
             console.log('Data inserted successfully:', response.data);
             setAlert({ message: 'Compte ajouté avec succès!', type: 'success' });
         } catch (error) {
@@ -55,12 +56,14 @@ const FormulaireCompte = () => {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <h1 style={{ color: '#ffffff', padding: '1rem', textAlign: 'center', fontSize: '25px' }}>Ajouter compte</h1>
+                {/* <h1 style={{ color: '#233142', padding: '1rem', textAlign: 'center', fontSize: '25px' }}>Ajouter compte</h1> */}
                 <label htmlFor='Id_util' className='labscom1'>ID Utilisateur:</label>
                 <br />
+                <div className='md:flex space-x-12 hidden'>
                 <select
                     id="Id_util"
-                    className='inputEntreprise'
+                    //className='inputEntreprise'
+                    className='w-ful my-{12rem} text-black   bg-[#ffffff] outline-none  focus:outline-none my-16 mx-12 max-h-40 overflow-y-scroll'
                     name="Id_util"
                     value={formData.Id_util}
                     onChange={handleChange}
@@ -84,11 +87,12 @@ const FormulaireCompte = () => {
                 <input className='inputEntreprise' type="date" name="date_creation_compte" placeholder="date creation compte" value={formData.date_creation_compte}
                     onChange={handleChange} required />
                 <br /> */}
-                <motion.button className='btnentreprise' type="submit"
+                <motion.button className='w-{54%} h-12 text-white bg-[#568986] rounded-md  my-12 text-center flex items-center justify-center  'type="submit"
                     whileHover={{
                         scale: 1.1,
                     }}
                 >Ajouter compte</motion.button>
+                </div>
             </form>
             <AnimatePresence>
                 {alert && (

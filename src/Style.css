@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap');
+
 *{
     box-sizing: border-box;
 }
 body{
     margin:0;
-    background-color: #e7eaf6;
+    background-color: #FFFFFF;
     position: inherit;
+    font-family: 'Inter',sans-serif;
 }
 .nav{
-    background-color:#53a8b6;
-    color: #FFFFFF;
+    background-color:#e7eaf6;
+    color: #233142;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -2,10 +2,11 @@ import { motion} from 'framer-motion';
 import FormulaireCompte from '../formulaire/formulaireCompte';
 import FormulaireAffichageCompte from '../formulaire/formulaireAffichageCompte';
 import AffichageCompte from '../formulaire/AffichageCompte';
-import FormulaireTransaction from '../formulaire/formulaireTransaction';
-import { useEffect, useState,CSSProperties } from 'react';
+import { useEffect, useState,CSSProperties, Fragment } from 'react';
 import PropagateLoader from 'react-spinners/PropagateLoader';
-import Navbar from '../components/Navbar';
+import FloatingBox from '../Floatingbox';
+import Modal from '../components/Modal';
+import ModelRapp from '../components/ModelRapp'
 const override: CSSProperties = {
   display: "block",
   margin: "20% 47%",
@@ -14,7 +15,9 @@ const override: CSSProperties = {
 
 
 export default function Entreprises(){
-    const[loading,setLoading]=useState(false)
+    const[loading,setLoading]=useState(false);
+    const [showModal,setShowModal]=useState(false);
+    const [hiseo,setHiseo]=useState(false);
     useEffect(()=>{
       setLoading(true)
       setTimeout(()=>{
@@ -22,8 +25,8 @@ export default function Entreprises(){
       },3000)
     },[])
     return (
-        <>
-          <Navbar/>
+        <Fragment>
+          {/* <Navbar/> */}
          <div>
           {
           loading?(
@@ -37,56 +40,25 @@ export default function Entreprises(){
       />   
            ) :( 
          
-     
-          <motion.div className="container2"
-          initial={{opacity:0}}
-          animate={{opacity:1}}
-          transition={{delay:0.8,duration:1.5}}
-          >
-             <motion.div className="containerafficheCompte"
-          initial={{opacity:0}}
-          animate={{opacity:1}}
-          transition={{delay:0.8,duration:1.5}}
-          >  
-           {/* place pour ajouter le contenu  */}
-          <FormulaireAffichageCompte />
-          </motion.div>
-
-
-
-          {/* container pour ajouter l'affichage de tout les compte du
-          contribuable */}
-          <motion.div className="containerafficheresultcompte"
-          initial={{opacity:0}}
-          animate={{opacity:1}}
-          transition={{delay:2,duration:1.5}}
-          >  
-           {/* place pour ajouter le contenu  */}
-             <AffichageCompte/>
-          </motion.div>
-
-
-         
-                      {/* container pour creation compte_tresorerie */}
-             <motion.div className="container22"
-          initial={{opacity:0}}
-          animate={{opacity:1}}
-          transition={{delay:1,duration:1.5}}
-          >  
-           {/* place pour ajouter une transaction */}
-           <FormulaireCompte />
-          </motion.div>
-          <motion.div className="container33"
-          initial={{opacity:0}}
-          animate={{opacity:1}}
-          transition={{delay:1.5,duration:1.5}}
-          >
-          <FormulaireTransaction />   
-          </motion.div>    
+            <motion.div 
+              initial={{opacity:0}}
+              animate={{opacity:1}}
+              transition={{delay:1.5,duration:1.5}}
+            >
+             <div className='md:flex space-x-12 hidden border  w-[92.3%] mx-[6%]'>
+           <FormulaireCompte/>
+           <FormulaireAffichageCompte/>
+            </div>
+            <div >
+         <AffichageCompte/>
+           </div>
+              <FloatingBox onVuClick={()=>setHiseo(true)} onContribuableClick={()=>setShowModal(true)}/>
+             
          </motion.div>
-         
         )}
         </div>
-        </>
+        <Modal isVisible={showModal} onClose={()=>setShowModal(false)}/>
+        <ModelRapp isVu={hiseo} onClose={()=>setHiseo(false)}/>
+        </Fragment>
     )
 }

@@ -4,11 +4,25 @@
 }
 .container1,.container2,.container3{
     margin: 0;
-    width: 100%;
+    width: 200%;
     height: 550px;
     position: fixed;
     border:none;
-    background-color: #9fd3c7;
+    position: absolute;
+    background-repeat:repeat;
+   
+     background-color: #233142; 
+    
+}
+.w-full{
+   width: 100%;
+   height: 550px;
+   margin-top:-3%;
+   
+}
+
+.transparence{
+   background-color: #00204a;
 }
 
  .container22{
@@ -134,7 +148,7 @@
    
 }
 
-td{
+/* td{
    border: 1px solid #233142;
    color: #00204a;
    font-size: 12px;
@@ -150,23 +164,23 @@ th{
    /* border-top-left-radius: 8px;
    border-top-right-radius: 8px; */
    /* position: sticky; */
-}
+/* }
 table{
    width: 100%;
    border:none;
    overflow-y: scroll;
    /* border-collapse: collapse; */
 
-}
+/* } */
 
-tr:hover{
+/* tr:hover{
    background-color: #455d7a;
    cursor: pointer;
    color: #ffffff;
 }
 td:hover{
    color: #ffffff;
-}
+} */ 
 
 .tableauContainer{
    width: 94.5%;
